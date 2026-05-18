@@ -44,6 +44,6 @@ jobs:
         uses: docker/build-push-action@v6
         with:
           context: Dockerfile/php/${{ matrix.version }}
-          file: Dockerfile
+          file: Dockerfile/php/${{ matrix.version }}/Dockerfile
           push: true
           tags: ghcr.io/${{ github.repository }}-php:${{ matrix.version }}
