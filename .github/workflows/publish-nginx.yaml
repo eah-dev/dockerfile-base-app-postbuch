@@ -43,7 +43,7 @@ jobs:
         id: build_push_nginx
         uses: docker/build-push-action@v6
         with:
-          context: Dockerfile/nginx/${{ matrix.version }}
-          file: ${{ matrix.version }}/Dockerfile
+          context: Dockerfile/nginx/${{ matrix.version }}/
+          file: Dockerfile
           push: true
           tags: ghcr.io/${{ github.repository }}-web:${{ matrix.version }}
