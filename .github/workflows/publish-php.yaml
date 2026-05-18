@@ -20,7 +20,7 @@ jobs:
       #
     strategy:
       matrix:
-        version: ["8.2", "8.4", "8.5"]  # comma separated, folder => VERSIONEN
+        version: ["8.2", "8.4"]  # comma separated, folder => VERSIONEN
 
     steps:
       - name: Checkout repository
