@@ -66,4 +66,3 @@ jobs:
           push: true
           tags: ${{ env.REGISTRY }}/${{ github.repository }}-php:${{ matrix.version }}
           labels: ${{ steps.meta.outputs.labels }}
-
