@@ -39,7 +39,7 @@ jobs:
         name: Login to GitHub Container Registry
         uses: docker/login-action@v3
         with:
-          registry: ghcr.io
+          registry: ${{ env.REGISTRY }}
           username: ${{ github.actor }}
           password: ${{ secrets.GH_TOKEN }}
 
@@ -59,9 +59,11 @@ jobs:
       # It uses the `tags` and `labels` parameters to tag and label the image with the output from the "meta" step.
       - name: Build and push Docker image (PHP)
         id: build_push_php
-        uses: docker/build-push-action@v7
+        uses: docker/build-push-action@v6
         with:
           context: Dockerfile/php/${{ matrix.version }}
           file: Dockerfile/php/${{ matrix.version }}/Dockerfile
           push: true
-          tags: ghcr.io/${{ github.repository }}-php:${{ matrix.version }}
+          tags: ${{ env.REGISTRY }}/${{ github.repository }}-php:${{ matrix.version }}
+          labels: ${{ steps.meta.outputs.labels }}
+
