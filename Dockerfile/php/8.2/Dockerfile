@@ -4,6 +4,9 @@ ARG ALPINE_VERSION=3.23
 
 FROM php:${PHP_VERSION}-fpm-${BUILD_PLATFORM}${ALPINE_VERSION}
 
+LABEL maintainer="Carsten Hölbing <carsten.hoelbing@eah-jena.de>"
+LABEL description="Template for PHP"
+
 # default: UTC
 ARG DATE_TIMEZONE="Europe/Berlin"
 
